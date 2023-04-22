@@ -7,7 +7,7 @@ namespace FizzBuzz
         public static string FizzBuzzStringBuilder(int max = 0)
         {
             StringBuilder sb = new();
-            for (int n = 0; n <= max; n++)
+            for (int n = 1; n <= max; n++)
             {
                 if (n % 3 == 0) sb.Append("Fizz");
                 if (n % 5 == 0) sb.Append("Buzz");
@@ -18,10 +18,20 @@ namespace FizzBuzz
         }
         public static string FizzBuzzString(int max = 0)
         {
+            string res = string.Empty;
+            for (int i = 1; i <= max; i++)
+            {
+                res += FString(i) + Environment.NewLine;
+            }
+            return res;
+
+        }
+        public static string FString(int n)
+        {
             string? result = null;
-            if (max % 3 == 0) result += "Fizz ";
-            if (max % 5 == 0) result += "Buzz";
-            return result ?? max.ToString();
+            if (n % 3 == 0) result += "Fizz ";
+            if (n % 5 == 0) result += "Buzz";
+            return result ?? n.ToString();
         }
         public static string FizzBuzzSpan(int max)
         {
