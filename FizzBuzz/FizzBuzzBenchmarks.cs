@@ -9,7 +9,7 @@ namespace FizzBuzz
     [RankColumn]
     public class FizzBuzzBenchmarks
     {
-        [Params(10, 100, 1_000)]
+        [Params(10, 100)]
         public int InputValue { get; set; }
 
         [Benchmark]
@@ -17,7 +17,6 @@ namespace FizzBuzz
         {
             FizzBuzz.FizzBuzzStringBuilder(InputValue);
         }
-
         [Benchmark]
         public void FizzBuzzString()
         {
@@ -27,6 +26,16 @@ namespace FizzBuzz
         public void FizzBuzzSpan()
         {
             FizzBuzz.FizzBuzzSpan(InputValue);
+        }
+        [Benchmark]
+        public void FizzBuzzCharArray()
+        {
+            FizzBuzz.FizzBuzzCharArray(InputValue);
+        }
+        [Benchmark]
+        public void FizzBuzzEnum()
+        {
+            FizzBuzz.FizzBuzzEnum(InputValue);
         }
     }
 }
